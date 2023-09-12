@@ -3,12 +3,15 @@ const validInput = document.querySelector("#validation-input");
 function validationInput() {
     if (
         validInput.dataset.length >= validInput.value.length &&
-        validInput.value.length !== 0
+        validInput.value.length > 0
     ) {
         validInput.classList.add("valid");
         validInput.classList.remove("invalid");
     } else if (validInput.dataset.length < validInput.value.length) {
         validInput.classList.add("invalid");
+        validInput.classList.remove("valid");
+    } else if (validInput.value.length === 0) {
+        validInput.classList.remove("invalid");
         validInput.classList.remove("valid");
     }
 }
